@@ -1,0 +1,156 @@
+/* 기본 스타일 */
+body {
+    margin: 0;
+    font-family: 'Noto Sans KR', sans-serif;
+    background-color: #f4f7f9;
+    height: 100vh;
+    overflow: hidden;
+}
+
+/* 2. 채팅 화면 스타일 */
+#chat-container {
+    width: 100vw;
+    height: 100vh;
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.6s ease-out 0.2s, transform 0.6s ease-out 0.2s;
+    position: fixed;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+}
+
+.chat-header {
+    display: flex;
+    align-items: center;
+    padding: 16px 40px;
+    border-bottom: 1px solid #e0e0e0;
+    flex-shrink: 0;
+}
+.header-logo { height: 40px; margin-right: 12px; }
+.header-title { margin-right: auto; }
+.header-title h1 { font-size: 18px; font-weight: 700; margin: 0; }
+.header-title span { font-size: 12px; color: #555; }
+.font-controls button { width: 28px; height: 28px; border: 1px solid #ccc; background-color: #fff; border-radius: 50%; font-size: 16px; font-weight: bold; cursor: pointer; margin-left: 5px; color: #555; transition: all 0.2s; }
+.font-controls button:hover { background-color: #f0f0f0; border-color: #999; }
+
+/* 채팅 메시지 영역 */
+.chat-messages {
+    flex-grow: 1;
+    padding: 40px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    background-color: #e9eff3;
+}
+
+/* 메시지 버블 공통 스타일 */
+.message {
+    padding: 12px 18px;
+    border-radius: 18px;
+    max-width: 65%;
+    line-height: 1.6;
+    word-wrap: break-word;
+    white-space: pre-wrap; /* 자동 줄바꿈을 위해 pre-wrap 사용 */
+}
+
+/* 챗봇 메시지 스타일 (왼쪽) */
+.message.bot {
+    background-color: #ffffff;
+    color: #333;
+    border-bottom-left-radius: 4px;
+    align-self: flex-start;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+}
+
+/* 사용자 메시지 스타일 (오른쪽) */
+.message.user {
+    background-color: #2a73b4;
+    color: #ffffff;
+    border-bottom-right-radius: 4px;
+    align-self: flex-end;
+}
+
+/* 입력 영역 */
+.chat-input-area {
+    padding: 20px 40px;
+    border-top: 1px solid #e0e0e0;
+    background-color: #f9f9f9;
+    flex-shrink: 0;
+}
+.input-wrapper {
+    max-width: 840px;
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column; /* 세로 정렬로 변경 */
+    align-items: center;
+}
+.suggestion-btn-area {
+    margin-bottom: 12px;
+    display: flex;
+    gap: 8px;
+}
+.suggestion-btn { /* '질문 가이드' 버튼 스타일 */
+    background-color: #e0eaf3;
+    border: 1px solid #c2d4e3;
+    border-radius: 15px;
+    padding: 6px 14px;
+    font-size: 13px;
+    color: #333;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+.suggestion-btn:hover {
+    background-color: #d1e0ee;
+    border-color: #a9c5db;
+}
+
+.input-field-wrapper {
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+#chat-input { flex-grow: 1; border: 1px solid #ddd; background-color: #fff; padding: 12px 20px; border-radius: 25px; outline: none; font-size: 16px; margin-right: 12px; }
+.send-btn { background-color: #2a73b4; color: white; border-radius: 50%; width: 44px; height: 44px; border: none; cursor: pointer; display: flex; align-items: center; justify-content: center; flex-shrink: 0; transition: background-color 0.2s; }
+.send-btn:hover { background-color: #1f5a91; }
+
+/* 애니메이션 클래스 */
+.hidden { display: none; }
+#initial-screen.slide-down { opacity: 0; transform: translateY(100px); }
+#chat-container.visible { opacity: 1; transform: translateY(0); pointer-events: auto; }
+
+/* Grid.js 테이블 스타일 */
+.message.bot .gridjs-container { background-color: white; border-radius: 8px; overflow: hidden; }
+.message.bot table.gridjs-table { font-size: 14px; }
+
+/* 순차적 답변을 위한 버튼 스타일 */
+.follow-up-container {
+    margin-top: 12px;
+    border-top: 1px solid #e9ecef;
+    padding-top: 12px;
+}
+.follow-up-btn {
+    background-color: #2a73b4;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 8px 16px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+.follow-up-btn:hover {
+    background-color: #1f5a91;
+    transform: translateY(-1px);
+}
+.follow-up-btn.disabled {
+    background-color: #a0a0a0;
+    cursor: not-allowed;
+    transform: none;
+}

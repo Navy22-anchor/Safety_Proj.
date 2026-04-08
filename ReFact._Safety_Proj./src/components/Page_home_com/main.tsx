@@ -1,3 +1,4 @@
+import {Link} from 'react-router-dom';
 const Main_searching = () => {
     return (
         <>
@@ -14,21 +15,20 @@ const Main_searching = () => {
     </>
     )
 }
-
 const Main_mainFunctions = () => {
     return (
         <>
             <section className="features">
             <h2 className="features__title">주요 기능 안내</h2>
             <div className="features__grid">
-                <a href="http://127.0.0.1:5501/web/web.html">
+                <Link to={'/chat'}>
                     <article className="feature-card" >
                         <div className="feature-card__icon">📈</div>
                         <h3 className="feature-card__title">실시간 위험 분석</h3>
                         <p className="feature-card__description">AI가 현장 데이터를 실시간으로 분석하여 잠재적 위험 요소를 즉시 알려줍니다.</p>
                     </article>
-                </a>
-                
+                </Link>
+                    
                 <article className="feature-card">
                     <div className="feature-card__icon">📋</div>
                     <h3 className="feature-card__title">자동 안전 보고서</h3>
@@ -49,7 +49,6 @@ const Main_mainFunctions = () => {
         </>
     )
 }
-
 const Main_News = () => {
     return (
         <>
@@ -73,5 +72,4 @@ const Main_News = () => {
         </>
     )
 }
-
 export {Main_searching, Main_mainFunctions, Main_News}
