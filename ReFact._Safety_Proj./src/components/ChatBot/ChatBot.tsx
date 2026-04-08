@@ -17,4 +17,12 @@ const chat_header = () => {
     )
 }
 
+const Chat_messages = () => {
+    return (
+        <>
+            <main id="chat-messages" className="chat-messages"></main>
+        </>
+    )
+}
+
 export default {chat_header}
