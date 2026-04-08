@@ -1,4 +1,4 @@
-const chat_header = () => {
+const Chat_header = () => {
     return (
         <>
         <header className="chat-header">
@@ -43,4 +43,4 @@ const Chat_footer = () => {
         </>
     )
 }
-export default {chat_header,Chat_messages,Chat_footer}
+export {Chat_header,Chat_messages,Chat_footer}
